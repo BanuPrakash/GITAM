@@ -55,3 +55,67 @@ HOF : function can return a function --> Closure
 Closure: returned function can access all the members of outer function.
 
 Memoization is a computer programming optimization technique that speeds up a program by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+
+=============
+
+ES2015 - ES6 version of JavaScript
+
+1) introduced block level members using let and const
+let and const --> no hoisting
+
+with var:
+```
+    var g = 100;
+    function doTask(){
+        console.log(this);
+        var a = 10;
+        if(g > a) {
+            var b = 20;
+            c = 30;
+        }
+        console.log(g, a, b, c);
+    }
+    doTask();
+```
+
+adding 
+'use strict' to JS file, global hoisting is prevented and "this" context is not passed on to the function -> results in undefined while using "this"
+
+2) Template string -> look into hof toCard() ``
+3) Promise API, to execute async code on Micro Task Queue on a seperate thread
+
+```
+console.log("Hello!!!");
+setTimeout(function timed1() {
+    console.log("t1")
+},0);
+
+setTimeout(function timed2() {
+    console.log("t2")
+},0);
+function somePromiseTask() {
+            return new Promise(function (resolve, reject) {   
+                    resolve("Get your Data!!");
+            });
+ }
+// Non blocking code
+somePromiseTask().then(
+    function resolved(data) {
+                console.log("Data Resolved ", data);
+    },
+    function rejected(err){
+                console.log("Boom :-(", err);
+    }
+);
+
+console.log("Another Task!!!");
+console.log("Bye!!!");
+```
+
+
+Event Loop
+
+tick
+
+Thread
+
