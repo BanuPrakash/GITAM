@@ -288,3 +288,22 @@ this file is where we configure dependencies and scripts
 lodash --> JS util library
 jest --> Testing Library
 Above statements will install modules and transitive depenendent modules into "node_modules" folder
+
+Team members will execute:
+node_examples> npm install
+
+---
+
+Package Managers:
+npm --> Node package manager --> default with NodeJS
+yarn -> package manager , need to install
+PNPM --> package manager
+
+package managers to download dependencies, execute script, publish modules
+https://www.npmjs.com/
+
+npm start
+
+=====
+
+JS build tools and React intro 3rd day
