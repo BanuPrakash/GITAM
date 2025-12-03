@@ -306,4 +306,107 @@ npm start
 
 =====
 
-JS build tools and React intro 3rd day
+Day 3:
+
+JavaScript build tool:
+1) Grunt
+2) Gulp
+3) Webpack
+4) Vite
+5) parcel
+...
+
+Grunt is a JavaScript task runner, a tool used to automatically perform frequent tasks such as minification, compilation, unit testing, and linting. 
+
+Webpack: excellent choice for build tool --> client side web applicaton
+supports bundling also along with above mentioned tasks.
+
+Upto FEB 2025 - webpack was the default build tool to create scaffolding code for react, angular, ...
+
+-----
+
+Simple Webpack project:
+Step 1: Intitialize a node project
+npm init --y 
+Step 2: install webpack dependencies
+npm i webpack webpack-cli webpack-dev-server -D
+
+Step 3: install transpiler - babel
+When we are using latest features of JS in development but the target platform doesn't support them.
+Use Babel / Tracuer to transpile higher version of JS to lower version
+
+npm i @babel/core babel-loader @babel/preset-env -D
+
+babel-loader: supports ES 6 module system. NodeJS supports CommonJS module System
+
+Example: import Product from './Product'
+
+babel-loader loads "Product.js" gives it to @babel/core [transcompiler]
+makes use of @babel/preset-env
+
+@babel/preset-env is a smart preset that allows you to use the latest JavaScript without needing to micromanage which syntax transforms (and optionally, browser polyfills) 
+Polyfills are code snippets, usually JavaScript, that provide modern functionality to older browsers or environments that don't natively support it.
+Example for Promise, Set, Map, ...
+
+Polyfill library: 
+https://www.npmjs.com/package/core-js
+
+
+Example:
+```
+let add = (x, y) => x + y;
+let title = "iPhone 18";
+let price = 98000.00
+
+let product = {title, price};
+
+transform into
+
+function add(x,y) {
+    return x + y;
+}
+
+var product = {
+    title: title,
+    price: price
+}
+```
+To configure presets:
+babel.config.json
+babel.config.js
+.babelrc
+
+```
+
+ npm run dev
+
+> webpack-example@1.0.0 dev
+> webpack --mode development
+
+asset bundle.js 8.73 KiB [emitted] (name: main)
+runtime modules 695 bytes 3 modules
+cacheable modules 3.65 KiB
+  ./src/index.js 1010 bytes [built] [code generated]
+  ./src/Product.js 1.91 KiB [built] [code generated]
+  ./src/lib.js 766 bytes [built] [code generated]
+
+==
+
+npm run prod
+
+> webpack-example@1.0.0 prod
+> webpack --mode production
+
+asset bundle.js 1.84 KiB [emitted] [minimized] (name: main)
+orphan modules 2.66 KiB [orphan] 2 modules
+./src/index.js + 2 modules 3.65 KiB [built] [code generated]
+```
+
+npm i html-webpack-plugin -D
+
+bundle.34534!sdf42.js
+bundle.dfdfg$122cw.js
+
+Also we may have many bundle files
+
+webpack-dev-server -- miniature HTTP web server useful in development env only
