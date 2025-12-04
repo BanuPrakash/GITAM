@@ -443,3 +443,89 @@ JavaScript
 
 npm run dev
 
+==========================
+MVC -> Model View Controller
+Model --> state / data
+View -> Presentation
+Controller -> Application Logic
+
+React : View library by facebook
+https://www.youtube.com/watch?v=8pDqJVdNa44&t=4474s
+Angular: MVC framework by google
+
+==================================
+
+Thinking in terms of React components.
+Atoms: Basic Building blocks of matter such as button, input, label. They're not useful on their own.
+Most of the time we use them from existing libraries like react-bootstrap, mui, primeReact, KendoUI, Adobe Spectrum
+
+Molecules: Grouping Atoms together, like Card, Panel
+Many a times existing libraries provide them
+
+Organisms: Combining molecules -> Navigation bar
+Templates: group of organisims
+Pages.
+
+======
+```
+folder
+    lib
+        transaction.js
+    features
+        products
+            ProductList.jsx
+            Product.jsx
+            ProductForm.jsx
+        customer
+        order
+    tests   
+        products
+            ProductList.test.js
+            Product.test.js
+```
+
+Component files should use CamelCase, start with uppercase, end with jsx/tsx
+Library/ helper / utility files start with lowercase, uses CamelCase , ends with "js/ts"
+
+Testing files should be the same name as Component/library being test but suffix it with "test" or "spec" .js
+
+=================================
+
+React Components:
+1) React.createElement() --> JSX to JS object
+2) Class Component
+    a) inherit from Component
+    b) override render() method
+    c) render method should return JSX
+```
+    class ProductList extends Component {
+        render() {
+            return <div>
+                <h1> Hello World!!!</h1>
+            </div>
+        }
+    }
+
+```
+    returned JSX from render() - React.createElement() - JSX to JS
+
+3) Functional components return JSX
+ returned JSX from function - React.createElement() - JSX to JS
+
+==
+Should choose renderers like react-dom / react-native / react-tv for converting the returned JS from React.createElement() to View
+
+========================================
+
+First React project:
+1) npm create vite@latest
+customer-app
+react
+javascript
+
+npm run dev
+
+=====
+
+
+
