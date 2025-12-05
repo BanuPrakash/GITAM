@@ -18,12 +18,24 @@ export default class CustomerList extends Component {
       {"id": 6, "firstName": "Monica", "lastName": "Geller"}
     ]
   }
+  deleteCustomer(id) {
+    // easiest way of deleting array elements
+    let custs = this.state.customers.filter(c => c.id !== id);
+    // this won't work, state updates but reconcillation won't happen
+    // this.state.customers = custs; 
+    // always use setState to update state and force reconcilliation - redraw
+    this.setState({
+      customers: custs
+    })
+  }
   // render returns JSX -> React.createElement() -> JS
   render() {
     return (
       <div>
         {
-          this.state.customers.map(cust => <CustomerRow customer={cust} key={cust.id}/>)
+          this.state.customers.map(cust => <CustomerRow 
+              delEvent={(id) => this.deleteCustomer(id)}
+              customer={cust} key={cust.id}/>)
         }
       </div>
     )

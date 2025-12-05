@@ -543,9 +543,12 @@ CustomerList.jsx:26 Each child in a list should have a unique "key" prop.
 
 key helps us in better Reconcilliation.
 
+https://legacy.reactjs.org/docs/reconciliation.html
+
+
 ```
 DOM -> VDOM [Virtual DOM]
 any changes will be not updating DOM, instead it makes a copy of VDOM and make changes to VDOM copy
-
-
 ```
+
+React Event handling: onEvent like onClick, onKeyPress, onChange, ...
