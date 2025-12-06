@@ -26,8 +26,9 @@ describe("testing <CustomerList />", () => {
     it("filter customers <CustomerList/> ", () => {
          render(<CustomerList />); 
          let txtBox = screen.queryByPlaceholderText('search by name');
+        //  let txtBox = document.querySelector('input')
          fireEvent.change(txtBox, {"target": {"value": "Geller"}});  
-         screen.debug(); 
+        // screen.debug(); 
           let btns = screen.queryAllByRole('button');
            expect(btns.length).toBe(2);
     })

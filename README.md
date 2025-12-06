@@ -603,3 +603,10 @@ Code Coverage -> How much of your code has been tested?
 * coverage-v8
 
 npm i @vitest/coverage-v8 -D
+
+Testing individual files:
+npm test -- src/lib/lib.test.js
+
+==========
+
+Testing in Isolation, need to mock dependency
