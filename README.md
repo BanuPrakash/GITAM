@@ -610,3 +610,22 @@ npm test -- src/lib/lib.test.js
 ==========
 
 Testing in Isolation, need to mock dependency
+
+================================================
+
+Component Life-Cycle methods of class components.
+
+Mounting Phase: occurs when first time component is mounted on to the screen
+constructor() -> render() -> componentDidMount()
+initialization the state -> render() with initial data -> API calls in componentDidMount() then update the state.
+
+Don't make API calls in constructor -> this leads to FCP issue 
+
+Updating Phase:
+1) New props from parent or State changes -> shouldComponentUpdate() -> false
+1) New props from parent or State changes -> shouldComponentUpdate() -> true -> render() -> componentDidUpdate()
+Make dependent API calls in componentDidUpdate()
+
+shouldComponentUpdate() -> conditionally update the component
+
+npm install @faker-js/faker 
