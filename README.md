@@ -737,5 +737,34 @@ tsc --init
    Sometimes we have info about type that typescript can't know, in these situations we use type assertion
 
 =======
+Date :  9-DEC
 
-Type Predicate, ... other TS functionalities
+Generics.
+- functions, types, class
+
+Conditional Types using Generics
+
+T[P] will be name
+T[P] will be email
+T[P] will be phone
+
+====
+
+The infer keyword
+used within conditional types to extract or "infer" a type from another type
+
+For Example:
+1) we need to extract what is the return type of a function
+2) we need to know first what is first argument to a function
+3) what are the types of parameters we need to pass to a function
+
+Many a times we will use JS libraries like React, lodash, .. which are in JS and not in TypeScript
+
+
+return value of any function
+take it/ infer as R
+
+==========
+
+Complete TS and start with Functional React components
+
