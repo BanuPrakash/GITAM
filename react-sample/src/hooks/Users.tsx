@@ -15,7 +15,7 @@ export default function Users({setUserId}: AppProps) {
     .then(data => {
         setUsers(data);
     })
-  }, []);
+  }, [ ]);
 
   return (
     <div>

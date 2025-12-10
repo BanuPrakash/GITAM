@@ -7,7 +7,7 @@ type UserDetailsProps = {
 
 export default function UserDetails({id}: UserDetailsProps) {
   let [user, setUser] = useState<User | null>( null);
-
+  
   // componentDidUpdate
   useEffect(() => {
      fetch('https://jsonplaceholder.typicode.com/users/' + id)
