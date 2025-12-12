@@ -963,3 +963,7 @@ Here Hello World and B are children
     <B />
 </LoginComponent>
 ```
+
+Whenever state changes in component, it triggers re-rendering of child components, leads to perfomance issue. can be avoided in class component using shouldComponentUpdate() life-cycle method.
+What is the solution for functional components?
+Memoization : HOC

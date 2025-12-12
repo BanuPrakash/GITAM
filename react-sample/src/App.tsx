@@ -6,12 +6,15 @@ import UserDetails from "./hooks/UserDetails";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Counter from "./hooks/Counter";
 import LoginComponent from "./hooks/LoginComponent";
+import ParentComponent from './trial/ParentComponent';
 
 function App() {
   let [id,setId] = useState<number>(1);
 
   return (
+    
     <LoginComponent>
+    <ParentComponent />
     <div className="container">
       {/* <StateComp /> */}
      <Counter />

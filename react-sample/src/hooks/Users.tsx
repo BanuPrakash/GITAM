@@ -10,6 +10,7 @@ export default function Users({setUserId}: AppProps) {
   let [users, setUsers] = useState<User[]>();
 
   let {name} = useContext(UserContext); // Consumer
+  // let {cartItems} = useContext(CartContext);
 
   // componentDidMount ==> called once when component is created
   useEffect(() => {
