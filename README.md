@@ -910,3 +910,56 @@ useEffect(() => {
  }
 
  ```
+
+ hook: useReducer.
+
+ Prefer this hook to manage state instead of useState() when
+ 1) State is complex
+ 2) conditionally mutate the state
+ 3) state mutation depends on previous state
+
+ Example:
+ ```
+    shopping cart state is
+    {
+        "items": [
+            {"id": 5, "name": "A", price : 891.99, qty: 1, amount: 891.99},
+            {"id": 2, "name": "B", price : 50, qty: 4, amount: 200}
+        ],
+        "total": 1092.00,
+        "qty": 2
+    }
+
+Conditions:
+1) ACTION : ADD_TO_CART
+ PAYLOAD: {"id": 8, "name": "D", price:900, qty: 2}
+ // amount will be computed in server based on discount coupon, tax, ...
+
+ 2) ACTION : INCREMENT
+ PAYLOAD: {"id": 5}
+
+ 3) ACTION: CHECKOUT
+ ```
+
+ Reducer function takes (state, action) returns new state
+ Action is an object which contains type and payload
+ Simple Counter using useReducer hook
+
+===================================================
+
+React Context:
+React follows uni-directional data flow [ props is passed from top to bottom components]
+React Context is a feature in React that allows you to pass data through your component tree without having to pass props down manually at every level (a problem known as "prop drilling").
+
+```
+Here A and B are children
+<LoginComponent>
+    <A />
+    <B />
+</LoginComponent>
+Here Hello World and B are children
+<LoginComponent>
+    Hello World!!!
+    <B />
+</LoginComponent>
+```

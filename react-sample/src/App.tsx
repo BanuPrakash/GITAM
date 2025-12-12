@@ -4,13 +4,17 @@ import { useState } from "react"
 import Users from "./hooks/Users";
 import UserDetails from "./hooks/UserDetails";
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Counter from "./hooks/Counter";
+import LoginComponent from "./hooks/LoginComponent";
 
 function App() {
   let [id,setId] = useState<number>(1);
 
   return (
+    <LoginComponent>
     <div className="container">
       {/* <StateComp /> */}
+     <Counter />
      <div className='row'>
           <div className='col-md-8'>
                    <Users setUserId={(id:number) => setId(id)}/>
@@ -20,6 +24,7 @@ function App() {
           </div>
       </div>
     </div>
+     </LoginComponent>
   )
 }
 
