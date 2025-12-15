@@ -1041,4 +1041,7 @@ Since state is complex and conditionally we need to mutate the state --> prefer 
 
 ============
 
+react-router-dom:
+1) different routes - show different components
+2) lazy loading of components [pending]
 

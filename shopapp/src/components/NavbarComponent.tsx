@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContextProvider';
 
 export default function NavbarComponent() {
-  let {qty} = useContext(CartContext)
+  let {qty} = useContext(CartContext); // Consumer
   return (
     <Navbar bg="dark" data-bs-theme="dark">
         <Container>

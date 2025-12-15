@@ -4,6 +4,7 @@ import ProductList from "./components/products/ProductList"
 import CartList from "./components/cart/CartList"
 import ProductForm from "./components/products/ProductForm"
 import Details from "./components/products/Details"
+import Default from "./components/Default"
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route path="/form" element={<ProductForm />} />
         <Route path="/details/:id" element={<Details />} />
         <Route path="/" element={<ProductList />} />
-        <Route path="*" element={<Details />} />
+        <Route path="*" element={<Default />} />
       </Routes>
     </div>
   )

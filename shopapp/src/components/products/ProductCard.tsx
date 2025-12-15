@@ -11,7 +11,7 @@ type AppProps = {
 
 export default function ProductCard({product}: AppProps) {
   let {id, title, image, price} = product;
-  let {addToCart} = useContext(CartContext);
+  let {addToCart} = useContext(CartContext); // Consumer
   return (
   <div className='col-md-4'>
     <Card style={{ width: '18rem' }}>

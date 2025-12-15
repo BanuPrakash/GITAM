@@ -10,6 +10,8 @@ type CartContextType = {
     qty: number,
     addToCart: (product:Product) => void // declare
 }
+
+// to avoid props-drill
 export const CartContext = createContext<CartContextType>({
     items: [],
     total: 0,
