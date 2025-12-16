@@ -1068,3 +1068,113 @@ Form Data:
 
 Redux: Predicatable State Managment
 
+Ecommerce application:
+1) react-router-dom
+client side routing
+lazy loading of components [lazy, Suspense, fallback]
+
+BrowserRouter, Routes, Route, Link
+
+2) Reducer function - simple JS function (state, action) => returns new state
+useReducer() hook is used to dispatch action to reducer function.
+
+3) Context: to avoid props drill
+    In this application state managed by useReducer we have placed it into Context, so that consumer can directly access it. Along with that we placed functions like addtoCart, increment and checkout in Context
+
+    useContext() is to Consume Context data / functions
+
+--------
+
+So far hooks covered:
+1) useState
+2) useEffect - side effects like API calls - component life cycle methods
+3) useReducer
+4) useContext: Context Consumer
+5) useParams(): to read path parameter http://server.com/api/products/4
+6) useRef(): to create a reference and attach it to DOM element/ components
+
+General use cases of Context:
+1) to avoid props-drill
+2) State management for smaller scale application [ like in this example]
+Examples:
+a) Handling shopping Cart
+b) Multi-stage processing of form data
+
+```
+    {
+        "signUpInfo": {
+            "username" : "",
+            "password" : ""
+        },
+        "personalInfo": {
+            "firstName": "",
+            "lastName": "",
+            "dateOfBirth": ""
+            
+        },
+        "professionalInfo": {
+            "qualificaiton" : "",
+            "experience": "",
+            "skills": ""
+        }
+    }
+
+```
+
+c) MCQ / Feedback forms
+
+=================
+
+REDUX: Predicatable State Management
+
+* Store: place where state resides, Single store per redux application
+* Reducers: same as what we have done, (state, action) => new state
+* Root Reducer
+
+```
+    {
+        "cart": {
+            "items": [...],
+            "total": 2325,
+            "qty": 4
+        },
+        "user": {
+            "avatar": "banu.png",
+            "name": " Banu Prakash"
+        }
+    }
+```
+
+Small Redux Application. --> Contacts Manager
+Action: ADD_CONTACT, REMOVE_CONTACT, CLEAR_CONTACTS
+
+```
+npm create vite@latest
+
+> npx
+> create-vite
+
+│
+◇  Project name:
+│  redux-example
+│
+◇  Select a framework:
+│  React
+│
+◇  Select a variant:
+│  JavaScript
+│
+◇  Use rolldown-vite (Experimental)?:
+│  No
+│
+◇  Install with npm and start now?
+│  Yes
+│
+◇  Scaffolding project in /Users/banuprakash/Documents/codes/GITAM/redux-example...
+│
+◇  Installing dependencies with npm...
+
+```
+
+npm i redux react-redux
+=====
