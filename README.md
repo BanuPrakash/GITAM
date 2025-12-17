@@ -1180,3 +1180,60 @@ npm i redux react-redux
 
 Chrome Web Store: Redux Devtools Extension
 =====
+
+Why Redux Toolkit instead of Redux?
+* Built on top of Redux
+* Simple [ store setup, creating reducers, immutable update logic ]
+* Opinionated [ assumes max users will use Redux DevTool extension, and hence configures it out of box]
+Also for async logic also it configures Thunk out of box.
+* Effective: more work with less code
+* Support for react redux hooks:
+    useSelector() The selector is approximately equivalent to the mapStateToProps argument to connect conceptually.
+    useDispatch() : The selector is approximately equivalent to the mapDispatchToProps argument to connect conceptually.
+
+Immutable Logic:
+https://immerjs.github.io/immer/
+https://immutable-js.com/
+Autodux
+
+====
+
+Migrating shopapp to use ReduxToolKit instead of Context
+
+```
+npm create vite@latest
+
+> npx
+> create-vite
+
+│
+◇  Project name:
+│  shopapp-rtk
+│
+◇  Select a framework:
+│  React
+│
+◇  Select a variant:
+│  TypeScript
+│
+◇  Use rolldown-vite (Experimental)?:
+│  No
+│
+◇  Install with npm and start now?
+│  Yes
+│
+◇  Scaffolding project in /Users/banuprakash/Documents/codes/GITAM/shopapp-rtk...
+│
+◇  Installing dependencies with npm...
+
+```
+
+shopapp-rtk > npm i @reduxjs/toolkit react-redux
+shopapp-rtk > npm i react-router-dom bootstrap react-bootstrap
+shopapp-rtk > npm i axios
+
+1) Remove Context and reducers folder
+2) remove reference in main.tsx, NavbarComponent, ProductCard, CartList, CartRow
+
+====================
+
