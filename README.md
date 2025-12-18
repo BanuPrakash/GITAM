@@ -1276,5 +1276,17 @@ configureStore({
   <button type="button" onClick={() = dispatch(decrement())}>
   <button type="button" onClick={() = dispatch(reset())}>
 
+{
+  cart: {
+    items: [],
+    quantity: 0,
+    total: 0
+  },
+  profile: {
+    avatar: 'banu.png',
+    name: 'Banu Prakash'
+  }
+}
+
 ```
 

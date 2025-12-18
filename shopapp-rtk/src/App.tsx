@@ -7,14 +7,16 @@ import ProductForm from "./components/products/ProductForm"
 import Default from "./components/Default"
 import ShipAddress from "./components/cart/ShipAddress"
 import { Spinner } from "react-bootstrap"
-import { useSelector } from "react-redux"
+import { useAppSelector } from "./redux/store"
+// import { useSelector } from "react-redux"
 
 const CartList = lazy(() => import ("./components/cart/CartList"));
 const Details = lazy (() => import ("./components/products/Details"));
 
 function App() {
+  let {name} = useAppSelector(state => state.profile);
   // @ts-ignore
-  let {name} = useSelector(state => state.profile);
+  // let {name} = useSelector(state => state.profile);
   return (
     <div>
       <h1> Welcome, {name}</h1>

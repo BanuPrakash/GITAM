@@ -27,7 +27,10 @@ export default function ProductCard({product}: AppProps) {
       </Card.Body>
       <Card.Footer>
         Rs. {price} &nbsp;&nbsp;&nbsp;&nbsp;   
-        <Button variant="primary" onClick={() => dispatch(addToCart({...product}))}>Add</Button>
+        <Button variant="primary" 
+            onClick={() => dispatch(addToCart({...product}))}>
+              Add
+        </Button>
       </Card.Footer>
     </Card>
   </div>

@@ -5,11 +5,15 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
+import { useAppSelector } from '../redux/store';
 
 export default function NavbarComponent() {
-  // @ts-ignore
-  let {quantity} = useSelector(state => state.cart); // mapStatetoProps
+  // typesafe useSelector
+    let {quantity} = useAppSelector(state => state.cart);
+
+    //@ts-ignore
+  // let {quantity} = useSelector(state => state.cart); // mapStatetoProps
   return (
     <Navbar bg="dark" data-bs-theme="dark">
         <Container>
