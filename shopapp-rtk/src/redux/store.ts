@@ -1,6 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from './features/cartSlice';
 import profileReducer from './features/profileSlice';
+import productReducer from './features/productSlice';
+
 import { useSelector, type TypedUseSelectorHook } from "react-redux";
 
 // instead of createStore
@@ -9,7 +11,8 @@ const store = configureStore({
     // combineReducer for RootReducer
     reducer: {
         cart: cartReducer,
-        profile: profileReducer
+        profile: profileReducer,
+        products: productReducer
     },
     // devTools: false
 });

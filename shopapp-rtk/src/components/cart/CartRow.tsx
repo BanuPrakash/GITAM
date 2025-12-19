@@ -1,6 +1,8 @@
 import React from 'react'
 import type CartItem from '../../model/CartItem'
 import { Button } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { increment } from '../../redux/features/cartSlice';
 
 
 type AppProps = {
@@ -9,7 +11,7 @@ type AppProps = {
 
 export default function CartRow({product}: AppProps) {
   let {id, image, title, price, quantity, amount} = product; // CartItem
-
+  let dispatch = useDispatch();
   return (
     <div className='row'>
       <div className='col-md-2'>
@@ -21,7 +23,7 @@ export default function CartRow({product}: AppProps) {
       <div className='col-md-4'>
         <Button> - </Button> &nbsp;
           {quantity} &nbsp;
-         <Button > + </Button> 
+         <Button onClick={() => dispatch(increment(id))}> + </Button> 
       </div>
       <div className='col-md-2'>
         Price : { price}

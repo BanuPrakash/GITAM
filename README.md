@@ -1290,3 +1290,41 @@ configureStore({
 
 ```
 
+https://dev.to/rudragupta_dev/building-a-to-do-app-with-rtk-query-2c0n
+
+=========
+
+
+REDUX actions are synchronous:
+View -> Dispatch action -> store -> root reducer --> reducer -> clones the data -> mutates -> gives it back to store -> store updates the state -> updated state is given to View
+
+Async Redux:
+https://redux.js.org/tutorials/fundamentals/part-6-async-logic
+
+Async Redux can be done using middleware: Thunk, Saga
+
+Thunk: subroutine
+
+dispatch(getProducts());
+
+dispatch({type:'FETCH_PRODUCTS'})
+
+dispatch({type:'ADD_TO_CART', payload: {...}})
+
+dispatch({type:'GET_PRODUCTS', products: {...fetched from API}})
+
+{
+    products: [{...}, {...}],
+    status: "idle",
+    error: null
+}
+
+https://github.com/reduxjs/redux-thunk/blob/master/src/index.ts
+
+=====
+
+Redux Toolkit: Highly opiniated Library.
+It assumes most of the developers uses Thunk as middleware  for async logic.
+Hence gives ready functions to use Thunk. Thunk library is installed.
+
+https://redux-toolkit.js.org/api/createAsyncThunk

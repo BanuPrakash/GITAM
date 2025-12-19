@@ -19,11 +19,19 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action:PayloadAction<Product>) => {
+            // to avoid duplicate
+            // check if action.payload is already there in state.items
+            // if present increment the qty or ignore
+            let existing = state.items.find(product => product.id === action.payload.id);
+            if(existing) {
+
+            } else {
             // RTK will pass a clone of state and not the original state
             // Any Changes to Clone, RTK will sync it with original
             state.items.push({...action.payload, quantity: 1, amount: action.payload.price});
             state.quantity++;
             state.total += action.payload.price
+            }
         },
         increment: (state, action: PayloadAction<number>) => {
            let item =  state.items.find(item => item.id === action.payload);
