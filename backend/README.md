@@ -203,11 +203,62 @@ https://sequelize.org/docs/v6/core-concepts/validations-and-constraints/
 Validation using Middleware in ExpressJS
 npm i express-validator
 
+===
 
+Integrating React with ExpressJS
 
+react-app> npm run build
+this creates a dist folder, copy contents into express project "public" folder
+in case if build fails fix errors or write
+//@ts-ignore on the error place
 
+modify server.ts to mention static resources
 
+==============
 
+Authentication and Authorization 
+Authentication: check if user is valid
+Authorization: check if user has sufficient previlages to access a resource
 
+RESTful Characteristics:
+1) Uniform URL identifier
+2) client-server seperation
+3) stateless: No Coversational state of client.
+    Cookie is used to track conversational state of client
+    Solution: use TOKEN based data to track client
+ JWT: Json Web Token
+https://www.jwt.io/
 
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30
+
+HEADERS:
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+
+PAYLOAD:
+{
+    "subject": "banu@gmail.com",
+    "iat": 928392451,
+    "exp": 999999233,
+    "iss": "https://server.gitam.com",
+    "authorities": ["MANAGER","GUEST"]
+}
+
+SIGNATURE:
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  topSecrectSaltValueShouldbeSafe)
+
+Salt Value: topSecrectSaltValueShouldbeSafe is used to generate a token and validate the token.
+
+In more Complex applications we can use Private KEYS to generate a token and 
+PUBLIC keys to validate token
+```
+
+npm i bcrypt jsonwebtoken
+npm i @types/bcrypt @types/jsonwebtoken -D
 

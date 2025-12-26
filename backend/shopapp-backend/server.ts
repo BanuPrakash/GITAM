@@ -1,3 +1,4 @@
+import path from 'path';
 import express, {Application, Request, Response} from 'express' // installed
 import {Server, createServer} from 'http' // built-in NodeJS module
 import cors from 'cors';
@@ -10,6 +11,9 @@ const app:Application = express();
 const server:Server = createServer(app);
 const routes: CommonRoutesConfig[]= []; // array of routes like api/products, api/customers
 const port = 1234;
+
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json()); // middleware
 app.use(cors()); // middleware
@@ -38,7 +42,8 @@ routes.push(new OrderRoutes(app));
 // });
 
 app.get("/", (req:Request, res: Response) => {
-    res.status(200).send("Server is Running on Port 1234");
+    res.sendFile("index.html");
+    // res.status(200).send("Server is Running on Port 1234");
 });
 
 
