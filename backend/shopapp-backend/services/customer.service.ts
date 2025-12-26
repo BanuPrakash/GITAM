@@ -14,6 +14,7 @@ class CustomerService {
       // Generate a salt (10 rounds is a common starting point)
       const salt = await bcrypt.genSalt(this.__saltRounds);
     // Hash the password
+        console.log("password ", password)
       const hashedPassword = await bcrypt.hash(password, salt);
 
     // Save user with the hashed password
