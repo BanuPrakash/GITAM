@@ -1,4 +1,5 @@
 import {Sequelize} from 'sequelize'
+import mysql2 from 'mysql2';
 // ORM
 const sequelize = new Sequelize({
     username: "root",
@@ -7,6 +8,7 @@ const sequelize = new Sequelize({
     port: 3306,
     database: "gitam_db",
     dialect : "mysql",
+     dialectModule: mysql2,
     logging: true
 });
 

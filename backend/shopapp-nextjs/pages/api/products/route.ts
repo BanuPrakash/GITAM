@@ -1,12 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import sequelize from '@/database/database';
+// import sequelize from '@/database/database';
 import { Product } from "@/database/models";
 import { Op } from "sequelize";
 
 // http://localhost:3000/api/products
 export default async function handler(req:NextApiRequest, res:NextApiResponse) {
     // await sequelize.sync();
-    if(req.method == 'GET') {
+    console.log("Request ", req);
+    if(req.method === 'GET') {
         // http://localhost:3000/api/products?price=10
         const {price} = req.query;
         try {
