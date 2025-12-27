@@ -3,6 +3,7 @@ import {body, validationResult} from 'express-validator'
 import { Application, NextFunction, Request, Response } from "express";
 import { CommonRoutesConfig } from "./CommonRoutesConfig";
 import productController from "../controllers/product.controller";
+import { tokenGuard } from '../token.guard';
 
 // a reusable middleware to handle validation results
 // middleware will have next: NextFunction along with request and response
@@ -22,8 +23,9 @@ export default class ProductRoutes extends CommonRoutesConfig {
 
     configureRoutes(): Application {
         this.app.route("/api/products")
-            .get(productController.listProducts)
+            .get( productController.listProducts)
             .post(
+                // tokenGuard,
                 // 1. validation middleware chain
                 [
                     body('title').notEmpty().withMessage('Title is required!!!'),

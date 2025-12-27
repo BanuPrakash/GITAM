@@ -28,8 +28,7 @@ Content-Type: application/json
 
 GET http://localhost:1234/api/products
 Accept: application/json
-
-
+Authorization: Bearer edJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoidmFuaXRoYUBnbWFpbC5jb20iLCJpYXQiOjE3NjY4MTE2NjQsImV4cCI6MTc2NjgxNTI2NCwicm9sZXMiOlsiQURNSU4iLCJNQU5BR0VSIl19.cP_lsJTR_YMf2Tj2sr47HMQifE-fmpd-b6dt8uMBEdU
 
 ### GET PRODUCT BY ID
 

@@ -8,3 +8,14 @@ Content-Type: application/json
     "name" : "Vanitha Kumari",
     "password": "secret123"
 }
+
+### Login
+POST http://localhost:1234/api/login
+Accept: application/json
+Content-Type: application/json
+
+{
+    "email": "vanitha@gmail.com",
+    "password": "secret123"
+}
+

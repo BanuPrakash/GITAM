@@ -6,6 +6,7 @@ import { CommonRoutesConfig } from './routes/CommonRoutesConfig';
 import ProductRoutes from './routes/products.routes';
 import CustomerRoutes from './routes/customers.routes';
 import OrderRoutes from './routes/orders.routes';
+import { tokenGuard } from './token.guard';
 
 const app:Application = express();
 const server:Server = createServer(app);
@@ -18,8 +19,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json()); // middleware
 app.use(cors()); // middleware
 
-routes.push(new ProductRoutes(app));
+
 routes.push(new CustomerRoutes(app));
+app.use(tokenGuard);
+routes.push(new ProductRoutes(app));
 routes.push(new OrderRoutes(app));
 
 // http://localhost:1234/

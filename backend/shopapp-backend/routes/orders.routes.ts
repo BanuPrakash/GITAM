@@ -1,6 +1,7 @@
 import { Application} from "express";
 import { CommonRoutesConfig } from "./CommonRoutesConfig";
 import orderController from "../controllers/order.controller";
+import { tokenGuard } from "../token.guard";
 
 export default class OrderRoutes extends CommonRoutesConfig {
     constructor(app: Application) {
@@ -11,7 +12,7 @@ export default class OrderRoutes extends CommonRoutesConfig {
     }
     configureRoutes(): Application {
         this.app.route('/api/orders')
-            .get(orderController.getOrders)
+            .get(tokenGuard, orderController.getOrders)
             .post(orderController.createOrder);
         this.app.route('/api/orders/report/:id')
             .get(orderController.getReport);

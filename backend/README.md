@@ -262,3 +262,27 @@ PUBLIC keys to validate token
 npm i bcrypt jsonwebtoken
 npm i @types/bcrypt @types/jsonwebtoken -D
 
+=========
+
+27/12/2025:
+
+compare customer.password with provided password
+
+
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoidmFuaXRoYUBnbWFpbC5jb20iLCJpYXQiOjE3NjY4MTE2NjQsImV4cCI6MTc2NjgxNTI2NCwicm9sZXMiOlsiQURNSU4iLCJNQU5BR0VSIl19.cP_lsJTR_YMf2Tj2sr47HMQifE-fmpd-b6dt8uMBEdU"
+
+======
+We have added tokenGuard to ProductsRoutes and OrderRoutes.
+
+routes.push(new CustomerRoutes(app)); // allow all to login and register, no token check
+app.use(tokenGuard);
+routes.push(new ProductRoutes(app));
+routes.push(new OrderRoutes(app));
+
+we can have an extra middleware to see role based access
+Only ADMIN can add products, modify products
+All valid users can access products
+
+===========================
+
+

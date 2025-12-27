@@ -13,6 +13,9 @@ export default class CustomerRoutes extends CommonRoutesConfig {
         configureRoutes(): Application {
             this.app.route("/api/customers")
             .post(customerController.register);
+
+            this.app.route("/api/login")
+            .post(customerController.login);
             return this.app;
         }
 }
