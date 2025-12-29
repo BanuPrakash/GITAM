@@ -5,14 +5,15 @@ import Product from "@/models/Product";
 export default async function Products() {
     console.log("Products Rendered!!!");
     // no need for useEffect
-    const res = await fetch("https://fakestoreapi.com/products?limit=6");
+    const res = await fetch("http://localhost:3000/api/products");
     const products: Product[] = await res.json();
 
     return (
         <div className="container">
             <div className="row">
                 {
-                    products && products.map(product => <ProductCard key={product.id} product={product} />)
+                    products && products.map(product => <ProductCard 
+                        key={product.id} product={product} />)
                 }
             </div>
         </div>

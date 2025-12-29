@@ -314,3 +314,102 @@ app/products/page.tsx --> Server Side React Component [ default]
 ===
 
 Sequelize and Endpoints
+
+=============
+
+full stack applcaiton Approach 1 using ExpressJS:
+We can completly build react application using json-server as mock RESTful API
+Can build Backend Endpoints seperatley using ExpressJS and sequelize.
+React ==> NodeJS [ExpressJS + Sequelize] => RDBMS
+
+Once Both are ready we can run the command in react application:
+npm run dev
+copy build folder onto expressjs public folder and mention in expressjs static content is from public folder.
+
+
+Full Stack using NextJS Approach 2:
+Here preferably build both from end and backend concurrently taking case by case like
+handling http://localhost:3000/products here we need Server Components and Client Components --> React specfic
+In NExtJS by default react components are Server components.
+Server Components can't have event-handling, hooks. Use this to fetch data and render the initial page.
+Client side components we need to mention "use client"
+Note: Server components can render client components, not vice-versa
+Client component can call server functions [apis]
+
+NextJS: we can have endpoints for RESTful or GraphQL WS also
+----
+
+"app" folder contains server components. NextJS uses file based routing
+folder: app/products/page.tsx ==> http://localhost:3000/products
+folder app/page.tsx ==> http://localhost:3000
+folder app/orders/page.tsx ==> http://localhost:3000/orders
+These components will be rendered inside layout.tsx [ most important part]
+Compare this with react-router-dom
+```
+ <NavbarComponents/>
+ {children}
+```
+
+New Version 16 version:
+pages/api folder for Endpoints
+
+pages/api/products.ts ==> http://localhost:3000/api/products
+Handles GET and POST http request
+
+pages/api/orders.ts ==> http://localhost:3000/api/orders
+handles GET and POST http request
+
+pages/api/products/[id].ts ==> http://localhost:3000/api/products/3
+to handle PATH parameter
+here we can handle GET by path parameter, delete, put and patch
+
+============
+
+In this application, 
+we can write app/cart/page.tsx --> SERVER side component in turn using
+Cart , CartList client side components.
+Redux store config is same.
+
+======
+
+Bcrpyt and JSONwebtoken is almost the same as in ExpressJS
+Bcrpyt vs Bcrpytjs
+
+=======
+
+Login:
+Not created a Login Form ==> app/login/page.tsx
+Endpoint: pates/api/users/login.ts ==> http://localhost:3000/api/users/login
+
+=====================
+
+Problem Statement:
+Vehicle Rental application
+Database models:
+Vehicle, Driver, Rental, Customer
+
+Use Case 1:
+Add vehicle [4 columns]
+REGNO, TYPE [HATCHBACK, SEDAN, SUV], FUEL_TYPE[ ELECTIRC, PETROL,..], COST_PER_DAY
+
+Use Case 2:
+Customer Registration ...
+
+Use Case 3: 
+Add Drivers similar to Customer
+Licence Number, name, licence_exp ,..
+
+Use case 4:
+Rent a Vehicle
+```
+ID | VEHICLE_FK | RENT_DATE         | RETURN_DATE | DRIVER_FK           |   CUSTOMER_FK.        | AMOUNT
+21.  AP01AS4144   28-12-2025 4:30       NULL        shyam@gmail.com           roja@gmail.com        0
+```
+
+Use case 5:
+Return a Vehicle
+```
+ID | VEHICLE_FK | RENT_DATE         | RETURN_DATE | DRIVER_FK           |   CUSTOMER_FK.        | AMOUNT
+21.  AP01AS4144   28-12-2025 4:30     29-12-2025        shyam@gmail.com         roja@gmail.com     5000
+```
+

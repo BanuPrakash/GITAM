@@ -9,7 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
+    "bcryptjs": "^3.0.3",
     "bootstrap": "^5.3.8",
+    "jsonwebtoken": "^9.0.3",
     "mysql2": "^3.16.0",
     "next": "16.1.1",
     "pg-hstore": "^2.3.4",

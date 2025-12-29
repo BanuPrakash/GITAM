@@ -1,11 +1,11 @@
 ### PLACE ORDER -- TEMP
 
-POST http://localhost:1234/api/orders
+POST http://localhost:3000/api/orders
 Accept: application/json
 Content-Type: application/json
 
 {
-    "email": "peter@gmail.com", 
+    "email": "vanitha@gmail.com", 
     "items": [
             { "product":1, "qty": 3},
             { "product": 2, "qty": 1}
